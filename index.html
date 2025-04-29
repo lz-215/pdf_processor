@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Processor - Extract & Summarize PDF Content</title>
+    <meta name="description" content="A comprehensive online PDF processing tool that allows you to scan, extract text with OCR, summarize content.">
+    <meta name="keywords" content="PDF processor, PDF tools, OCR, text extraction, PDF scan, PDF summarize">
+
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><i class="fas fa-file-pdf"></i> PDF Processor</h1>
+            <p>Extract text with OCR and generate summaries from your PDF documents</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="upload-section">
+            <div class="upload-container">
+                <h2>Upload Your PDF</h2>
+                <div class="upload-area" id="upload-area">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <p>Drag & drop your PDF here or</p>
+                    <label for="pdf-upload" class="upload-btn">Choose File</label>
+                    <input type="file" id="pdf-upload" accept=".pdf" hidden>
+                </div>
+                <div class="file-info" id="file-info">
+                    <p>No file selected</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="action-section">
+            <h2>Process Your PDF</h2>
+            <div class="actions">
+                <button id="extract-btn" class="btn primary-btn" disabled>
+                    <i class="fas fa-text-height"></i> Extract Text with OCR
+                </button>
+                <button id="summarize-btn" class="btn secondary-btn" disabled>
+                    <i class="fas fa-file-alt"></i> Summarize Content
+                </button>
+            </div>
+        </section>
+
+        <section class="result-section">
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="extracted-text">Extracted Text</button>
+                <button class="tab-btn" data-tab="summary">Summary</button>
+            </div>
+            
+            <div class="tab-content">
+                <div id="extracted-text" class="tab-pane active">
+                    <div class="result-container">
+                        <h3>Extracted Text</h3>
+                        <div class="loading-indicator hidden">
+                            <div class="spinner"></div>
+                            <p>Extracting text from your PDF...</p>
+                        </div>
+                        <div class="result-box" id="text-result">
+                            <p class="placeholder-text">Upload a PDF and click "Extract Text" to see the results here</p>
+                        </div>
+                        <button id="copy-text-btn" class="btn" disabled>
+                            <i class="fas fa-copy"></i> Copy to Clipboard
+                        </button>
+                    </div>
+                </div>
+                
+                <div id="summary" class="tab-pane">
+                    <div class="result-container">
+                        <h3>PDF Summary</h3>
+                        <div class="loading-indicator hidden">
+                            <div class="spinner"></div>
+                            <p>Generating summary...</p>
+                        </div>
+                        <div class="result-box" id="summary-result">
+                            <p class="placeholder-text">Upload a PDF and click "Summarize Content" to see the summary here</p>
+                        </div>
+                        <button id="copy-summary-btn" class="btn" disabled>
+                            <i class="fas fa-copy"></i> Copy to Clipboard
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 PDF Processor | Web-based PDF processing tool</p>
+            <p class="disclaimer">PDF Processor is designed to process PDF documents directly in your browser. No files are uploaded to any server, ensuring your document privacy and security.</p>
+            <p class="beian"><a href="https://beian.miit.gov.cn/" target="_blank">渝ICP备2025054506号-28</a></p>
+        </div>
+    </footer>
+
+    <!-- PDF.js library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
+    <!-- Tesseract.js for OCR -->
+    <script src="https://cdn.jsdelivr.net/npm/tesseract.js@4/dist/tesseract.min.js"></script>
+    
+    <!-- Application scripts -->
+    <script src="js/app.js"></script>
+    <script src="js/ocr.js"></script>
+    <script src="js/summarize.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html> 
